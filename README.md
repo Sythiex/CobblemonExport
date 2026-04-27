@@ -7,18 +7,14 @@
 <p align="center">
     <b>Export your Pokémon data to Pokémon Showdown format effortlessly.</b>
     <br>
-    <a href="LICENSE">MIT License</a> | <a href="#">Fabric 1.21.1</a> | <a href="#">Client-Side</a>
+    <a href="LICENSE">MIT License</a> | <a href="https://neoforged.net/">NeoForge 1.21.1</a> | Client-Side
 </p>
 
 ---
 
-## 👋 Introduction
+**This is a NeoForge port of [Cobblemon Export](https://github.com/AlguemDaRua/CobblemonExport) by AlguemDaRua. Below is the original description (with updated dependencies for NeoForge).**
 
-Hello! This mod was made by **AlguemDaRua**.
-
-I created this small utility because I wanted to access detailed information about my Pokémon (IVs, EVs, Stats, Moves) without having to check them one by one in the summary screen. Whether you are building a competitive team, trading with friends, or backing up your data, **Cobblemon Export** makes it instant and easy.
-
-I hope you like it and enjoy using it! Please leave feedback so I can make it even better.
+---
 
 ## ✨ Features
 
@@ -40,9 +36,8 @@ To run this mod, you need the following:
 | Component | Version Requirement |
 | :--- | :--- |
 | **Minecraft** | `1.21.1` |
-| **Fabric Loader** | `0.18.2` or higher |
-| **Fabric API** | Required |
-| **Cobblemon** | `1.7` or higher |
+| **NeoForge** | `21.1.227` or compatible `21.1.x` |
+| **Cobblemon** | `1.7.3` or compatible `1.7.x` |
 
 ## 💻 Commands
 
@@ -107,13 +102,14 @@ IVs: 16 HP / 30 Atk / 21 Def / 23 SpA / 16 SpD / 17 Spe
 ## 📥 Installation
 
 1.  Download the **`.jar`** file.
-2.  Make sure you have **Fabric Loader** installed for Minecraft 1.21.1.
+2.  Make sure you have **NeoForge** installed for Minecraft 1.21.1.
 3.  Place the `.jar` into your `mods` folder.
 4.  Launch the game!
 
 ## 📜 License
 
 This project is licensed under the **MIT License**.
-Copyright © 2026 **AlguemDaRua**.
+Copyright © 2026 **AlguemDaRua** for original mod.
+Copyright © 2026 **Sythiex** for NeoForge port.
 
 You are free to use, modify, and distribute this mod as long as credit is provided.
