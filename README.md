@@ -19,7 +19,7 @@
 ## ✨ Features
 
 *   **Export Party:** Instantly dump your current team's data to a file.
-*   **Export PC Boxes:** Export entire boxes (up to box 200) with a single command.
+*   **Export PC Boxes:** Export one box or all boxes with a single command.
 *   **Showdown Compatible:** Clean text output that can be pasted directly into **Pokémon Showdown** teambuilder.
 *   **Perfect Accuracy:** Handles **Nature Mints** (Effective Nature) and **IV Candies/Hyper Training** (Effective IVs) correctly.
 *   **Clean Output:** No useless UUIDs, catch balls, or HP values—just what you need for competitive play.
@@ -54,13 +54,19 @@ Exports the 6 Pokémon currently in your team.
 ```
 
 ### 2. Export PC Box
-Exports all Pokémon in a specific PC box.
+Exports all Pokémon in a specific PC box, or every PC box into one file.
 ```mcfunction
 # Exports Box 1 to 'box_1_export.txt'
 /cobble_export box 1
 
 # Exports Box 5 to a new numbered file
 /cobble_export box 5 new
+
+# Overwrites 'boxes_export.txt' with all boxes
+/cobble_export box all
+
+# Creates a new all-boxes file (e.g., 'boxes_export_1.txt')
+/cobble_export box all new
 ```
 
 ---

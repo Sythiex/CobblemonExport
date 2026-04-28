@@ -38,6 +38,10 @@ public final class ExportCommand {
                 .executes(ctx -> exportParty(ctx, false))
                 .then(Commands.literal("new").executes(ctx -> exportParty(ctx, true))))
             .then(Commands.literal("box")
+                .then(Commands.literal("all")
+                    .executes(ctx -> exportAllBoxes(ctx, false))
+                    .then(Commands.literal("new")
+                        .executes(ctx -> exportAllBoxes(ctx, true))))
                 .then(Commands.argument("boxNum", IntegerArgumentType.integer(1, 200))
                     .executes(ctx -> exportBox(ctx, IntegerArgumentType.getInteger(ctx, "boxNum"), false))
                     .then(Commands.literal("new")
@@ -63,6 +67,10 @@ public final class ExportCommand {
             .append(commandText("/cobble_export box <num>", "Exports a specific PC box to a text file."))
             .append(Component.literal("\n"))
             .append(commandText("/cobble_export box <num> new", "Exports a PC box to a NEW text file."))
+            .append(Component.literal("\n"))
+            .append(commandText("/cobble_export box all", "Overwrites the 'boxes_export.txt' file."))
+            .append(Component.literal("\n"))
+            .append(commandText("/cobble_export box all new", "Creates a NEW all-boxes file."))
             .append(text("\n\nFiles are saved in: ", ChatFormatting.WHITE, false))
             .append(text(".minecraft/cobblemon_exports/", ChatFormatting.GREEN, false))
             .append(Component.literal("\n----------------------------------------").withStyle(ChatFormatting.DARK_GRAY));
@@ -119,6 +127,28 @@ public final class ExportCommand {
         }
 
         saveShowdown(ctx.getSource(), "box_" + boxNum + "_export", exportData, createNew);
+        return Command.SINGLE_SUCCESS;
+    }
+
+    private static int exportAllBoxes(CommandContext<CommandSourceStack> ctx, boolean createNew) {
+        List<ClientBox> boxes = getPcBoxesFromStorage();
+
+        if (boxes == null) {
+            sendError(ctx, "Could not find PC Storage. Please open your PC block once to load data.");
+            return 0;
+        }
+
+        List<String> exportData = new ArrayList<>();
+        for (ClientBox box : boxes) {
+            exportData.addAll(extractPokemonFromList(box));
+        }
+
+        if (exportData.isEmpty()) {
+            sendError(ctx, "No Pokemon found in any loaded PC box!");
+            return 0;
+        }
+
+        saveShowdown(ctx.getSource(), "boxes_export", exportData, createNew);
         return Command.SINGLE_SUCCESS;
     }
 
