@@ -1,4 +1,4 @@
-# Cobblemon Export
+# Cobblemon Export NeoForge
 
 <p align="center">
   <img src="src/main/resources/assets/cobbleexport/icon.png" alt="Cobblemon Export Logo" width="150">
